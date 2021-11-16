@@ -387,3 +387,4 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 /FIrebaseApp/project-fbapp.json
+/backend/FIrebaseApp/project-fbapp.json
