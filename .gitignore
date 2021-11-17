@@ -389,3 +389,4 @@ FodyWeavers.xsd
 /FIrebaseApp/project-fbapp.json
 /backend/FIrebaseApp/project-fbapp.json
 /frontend/firebase-app/package-lock.json
+/frontend/package-lock.json
