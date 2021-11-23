@@ -5,6 +5,7 @@ using System;
 using System.Threading.Tasks;
 using FirebaseAdmin;
 using FirebaseAdmin.Auth;
+using FIrebaseApp.Models;
 
 namespace FIrebaseApp.Services
 {
@@ -17,7 +18,7 @@ namespace FIrebaseApp.Services
             _firebase = firebase;
         }
 
-        public async Task<OneOf<Success, FirebaseAuthException>> Register(RegisterDTO dto)
+        public async Task<AuthToken> Register(RegisterDTO dto)
         {
             var user = new UserRecordArgs
             {
@@ -28,12 +29,13 @@ namespace FIrebaseApp.Services
 
             try
             {
-                await _firebase.AuthApp.CreateUserAsync(user);
-                return new Success();
+                var result = await _firebase.AuthApp.CreateUserAsync(user);
+                var token = await _firebase.AuthApp.CreateCustomTokenAsync(result.Uid);
+                return new AuthToken { Token = token, UserRecord = result };
             }
             catch (FirebaseAuthException exception)
             {
-                return exception;
+                throw new Exception(exception.Message);
             }
         }
     }

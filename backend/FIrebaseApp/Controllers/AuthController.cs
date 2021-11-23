@@ -1,4 +1,5 @@
 ﻿using FIrebaseApp.DTO;
+using FIrebaseApp.Models;
 using FIrebaseApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -17,14 +18,11 @@ namespace FIrebaseApp.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterDTO dto)
+        public async Task<AuthToken> Register([FromBody] RegisterDTO dto)
         {
             var registerResult = await _authService.Register(dto);
 
-            return registerResult.Match<IActionResult>(
-                success => Ok(),
-                error => BadRequest()
-            );
+            return registerResult;
         }
 
 
