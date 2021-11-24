@@ -18,11 +18,11 @@ namespace FIrebaseApp.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<AuthToken> Register([FromBody] RegisterDTO dto)
+        public async Task<IActionResult> Register([FromBody] RegisterDTO dto)
         {
             var registerResult = await _authService.Register(dto);
 
-            return registerResult;
+            return Ok(new AuthToken { Token = registerResult, UserName = dto.UserName });
         }
 
 

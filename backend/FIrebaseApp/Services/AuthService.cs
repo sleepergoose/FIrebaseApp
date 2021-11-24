@@ -18,7 +18,7 @@ namespace FIrebaseApp.Services
             _firebase = firebase;
         }
 
-        public async Task<AuthToken> Register(RegisterDTO dto)
+        public async Task<string> Register(RegisterDTO dto)
         {
             var user = new UserRecordArgs
             {
@@ -31,7 +31,7 @@ namespace FIrebaseApp.Services
             {
                 var result = await _firebase.AuthApp.CreateUserAsync(user);
                 var token = await _firebase.AuthApp.CreateCustomTokenAsync(result.Uid);
-                return new AuthToken { Token = token, UserRecord = result };
+                return token;
             }
             catch (FirebaseAuthException exception)
             {

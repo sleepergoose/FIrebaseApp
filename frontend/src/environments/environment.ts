@@ -9,10 +9,7 @@ export const environment = {
   firebaseConfig: {
     apiKey: process.env.FIREBASE_KEY_APP,
     authDomain: "project-fbapp.firebaseapp.com",
-    projectId: "project-fbapp",
-    storageBucket: "project-fbapp.appspot.com",
-    messagingSenderId: "209313510497",
-    appId: "1:209313510497:web:67a6a233bfe7c44fb7a620"
+    projectId: "project-fbapp"
   }
 };
 

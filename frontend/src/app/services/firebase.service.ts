@@ -4,10 +4,8 @@ import { environment } from 'src/environments/environment';
 import {
   getAuth, 
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
   Auth,
   UserCredential,
-  User,
   signInWithCustomToken,
   signInWithEmailAndPassword,
   signOut
@@ -17,7 +15,8 @@ import {
   FirebaseApp,
   initializeApp
 } from 'firebase/app';
-import { Observable, of } from 'rxjs';
+
+import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,56 +34,15 @@ export class FirebaseService {
     signOut(this.auth);
   }
   
-  signInWithEmailAndPassword(email: string, password: string): Observable<UserCredential | Error> {
-    let result = {} as UserCredential | Error;
-
-    signInWithEmailAndPassword(this.auth, email, password)
-      .then(credentials => {
-        result = credentials;
-      })
-      .catch(error => {
-        result = error;
-      });
-
-      return of(result);
+  signInWithEmailAndPassword(email: string, password: string): Observable<UserCredential> {
+    return from(signInWithEmailAndPassword(this.auth, email, password));
   }
 
-  signInWithCustomToken(token: string): Observable<UserCredential | Error> {
-    let result = {} as UserCredential | Error;
-
-    signInWithCustomToken(this.auth, token)
-      .then((credentials => {
-        result = credentials;
-      }))
-      .catch(error => {
-        result = error
-      });
-
-      return of(result);
+  signInWithCustomToken(token: string): Observable<UserCredential> {
+    return from(signInWithCustomToken(this.auth, token));
   }
 
-  createUserWithEmailAndPassword(email: string, password: string): Observable<UserCredential | Error> {
-    let result = {} as UserCredential | Error;
-
-    createUserWithEmailAndPassword(this.auth, email, password)
-      .then((result) => {
-        result = result;
-      })
-      .catch((error) => {
-        result = error;
-      })
-
-      return of(result);
-  }
-
-  onAuthStateChanged(): Observable<User | null> {
-    let result = {} as User | null;
-
-    onAuthStateChanged(this.auth, 
-      user => {
-        result = user;
-      });
-
-      return of(result);
+  createUserWithEmailAndPassword(email: string, password: string): Observable<UserCredential> {
+    return from(createUserWithEmailAndPassword(this.auth, email, password));
   }
 }
