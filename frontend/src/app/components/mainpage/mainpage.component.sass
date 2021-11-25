@@ -1,0 +1,56 @@
+@import "src/styles.sass"
+
+.header
+  width: 100%
+  display: grid
+  grid-template-columns: 50% 50%
+  grid-template-rows: 100%
+  border-bottom: 1px solid #282F37
+  background: $drk-gray
+  .logo
+    grid-column: 1
+    grid-row: 1
+    align-self: center
+    a
+      color: $medium-orange
+      font-size: 1.7rem
+      display: inline-block
+      margin: 20px 
+      font-weight: 600
+  .credentials
+    align-self: center
+    justify-self: right
+    ul
+      li
+        color: #aaaaaa
+        display: inline
+        &:first-child
+          padding: 10px 5px 10px 20px
+        &:last-child
+          padding: 10px 20px 10px 5px
+        a
+          color: $medium-orange
+      .userName
+        a
+          color: #aaaaaa
+
+.menu
+  ul
+    text-align: center
+    border-bottom: 1px solid #282F37
+    li
+      display: inline-block
+      a
+        display: block
+        width: 100px
+        color: $light-orange
+        padding: 10px 15px
+        &:hover
+          background: $light-gray 
+
+      
+
+  
+        
+      
+

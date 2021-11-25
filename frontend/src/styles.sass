@@ -1,34 +1,32 @@
+$bg-gradient: linear-gradient(180deg, #FD8427 0%, #FD6831 100%)
+$drk-gray: #21292D
+$gray: #777
+$light-gray: #282F37
+$light-orange: #FD9122
+$medium-orange: #FD5D34
+$text: #FAFBFF
+
+
 *
   padding: 0px
   margin: 0px
   text-decoration: none
-  
-$bg-gradient: linear-gradient(180deg, #FD8427 0%, #FD6831 100%)
+  list-style: none
+  box-sizing: border-box
 
-$drk-gray: #21292D
-$gray: #777
-$light-gray: #282F37
+.credentials-container
+  display: block
+  position: relative
+  width: 370px
+  height: 290px
+  border: 2px solid $light-gray
+  border-radius: 10px
+  background: $light-gray
+  top: 50%
+  left: 50%
+  transform:  translate(-50%, -50%)
+  padding: 10px
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.3)
 
-$light-orange: #FD9122
-$medium-orange: #FD5D34
-
-$text: #FAFBFF
-
-
-
-.btn-full
-  background: linear-gradient(90deg, $light-orange 0%, $medium-orange 100%)
-  border-radius: 50px
-  color: white
-  font-size: 16px
-  &:hover
-    background: linear-gradient(90deg, $light-orange 0%, $medium-orange 100%)
-  &:active
-    background: linear-gradient(90deg, darken($light-orange, 10%) 0%, darken($medium-orange, 10%) 100%)
-
-
-.btn-full:hover
-  background: linear-gradient(90deg, darken($light-orange, 5%) 0%, darken($medium-orange, 5%) 100%)
-
-.btn-full:active
-  background: linear-gradient(90deg, darken($light-orange, 8%) 0%, darken($medium-orange, 8%) 100%)
+.login
+  height: 240px
