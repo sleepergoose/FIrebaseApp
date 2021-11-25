@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
-import { LoginData } from 'src/app/models/login-data';
 import { RegisterData } from 'src/app/models/register-data';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -31,14 +30,5 @@ export class RegisterComponent {
       .subscribe((result) => {
         this._router.navigate(['../login']);
       });
-  }
-
-  login() {
-    let login = {
-      email: this.email,
-      password: this.password
-    } as LoginData;
-
-    this._authService.login(login);
   }
 }

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { take } from 'rxjs';
 import { LoginData } from 'src/app/models/login-data';
 import { AuthService } from 'src/app/services/auth.service';
-import { InternalHttpService } from 'src/app/services/internal-http.service';
 
 @Component({
   selector: 'app-login',
@@ -15,17 +16,19 @@ export class LoginComponent {
   
   constructor(
     private _authService: AuthService,
-    private _http: InternalHttpService) {}
+    private _router: Router) {}
 
   login() {
     let loginData = {
-      accessToken: '',
       email: this.email,
-      firebaseId: '',
-      password: this.password,
-      userName: ''
+      password: this.password
     } as LoginData;
 
-    this._authService.login(loginData);
+    this._authService.login(loginData)
+      .pipe(take(1))
+      .subscribe(credentials => {
+        this._authService.setAuthUser(credentials.user);
+        this._router.navigate(['../main'])
+      });
   }
 }
