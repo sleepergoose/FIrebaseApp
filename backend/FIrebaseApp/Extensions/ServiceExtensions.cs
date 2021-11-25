@@ -16,6 +16,7 @@ namespace FIrebaseApp.Extensions
         {
             services.AddScoped<IStorage<User>, UserStorage>();
             services.AddSingleton<FirebaseService>();
+            services.AddScoped<AuthService>();
         }
     }
 }

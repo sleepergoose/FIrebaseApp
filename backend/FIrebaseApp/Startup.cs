@@ -33,7 +33,12 @@ namespace FIrebaseApp
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseCors(conf =>
+            {
+                conf.AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowAnyOrigin();
+            });
             app.UseRouting();
 
             app.UseMvcWithDefaultRoute();

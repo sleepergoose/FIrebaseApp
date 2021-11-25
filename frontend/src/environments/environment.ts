@@ -4,7 +4,13 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:5001'
+  apiUrl: 'https://localhost:5001',
+
+  firebaseConfig: {
+    apiKey: '',
+    authDomain: "project-fbapp.firebaseapp.com",
+    projectId: "project-fbapp"
+  }
 };
 
 /*

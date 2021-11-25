@@ -1,4 +1,5 @@
 ﻿using FIrebaseApp.DTO;
+using FIrebaseApp.Models;
 using FIrebaseApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -21,10 +22,7 @@ namespace FIrebaseApp.Controllers
         {
             var registerResult = await _authService.Register(dto);
 
-            return registerResult.Match<IActionResult>(
-                success => Ok(),
-                error => BadRequest()
-            );
+            return Ok(new AuthToken { Token = registerResult, UserName = dto.UserName });
         }
 
 
