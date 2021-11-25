@@ -1,1 +1,23 @@
-<p>mainpage works!</p>
+<div class="header">
+  <div class="logo">
+    <a href="#">The Best Site</a>
+  </div>
+  <div class="credentials">
+    <ul>
+      <li *ngIf="!isAuthentificated"><a routerLink="/register">Sign Up</a></li>
+      <li class="userName" *ngIf="isAuthentificated"><a>peter@mail.com</a></li>
+      <li>|</li>
+      <li *ngIf="!isAuthentificated"><a routerLink="/login">Sign In</a></li>
+      <li *ngIf="isAuthentificated"><a routerLink="/login">Log Out</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="menu">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Contacts</a></li>
+    <li><a href="#">About us</a></li>
+  </ul>
+</div>
