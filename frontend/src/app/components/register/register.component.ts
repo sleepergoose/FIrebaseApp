@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { take } from 'rxjs/operators';
-import { RegisterData } from 'src/app/models/register-data';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -19,16 +17,6 @@ export class RegisterComponent {
     private _router: Router) {}
 
   register() {
-    let register = {
-      email: this.email,
-      password: this.password,
-      userName: this.name
-    } as RegisterData;
-
-    this._authService.register(register)
-      .pipe(take(1))
-      .subscribe((result) => {
-        this._router.navigate(['../login']);
-      });
+   
   }
 }

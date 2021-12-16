@@ -7,7 +7,7 @@ export const environment = {
   apiUrl: 'https://localhost:5001',
 
   firebaseConfig: {
-    apiKey: '',
+    apiKey: 'AIzaSyDiedc5XPEpnpdniu0GONYotn4JrWpF5-8',
     authDomain: "project-fbapp.firebaseapp.com",
     projectId: "project-fbapp"
   }

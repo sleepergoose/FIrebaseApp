@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { take } from 'rxjs';
-import { LoginData } from 'src/app/models/login-data';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -19,16 +17,5 @@ export class LoginComponent {
     private _router: Router) {}
 
   login() {
-    let loginData = {
-      email: this.email,
-      password: this.password
-    } as LoginData;
-
-    this._authService.login(loginData)
-      .pipe(take(1))
-      .subscribe(credentials => {
-        this._authService.setAuthUser(credentials.user);
-        this._router.navigate(['../main'])
-      });
   }
 }
